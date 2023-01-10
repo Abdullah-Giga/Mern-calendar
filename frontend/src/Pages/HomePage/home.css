@@ -1,0 +1,35 @@
+.home-container{
+    width: 100%;
+    padding: 0% 2%;
+}
+.home-content{
+    display: flex;
+    flex-direction: row;
+    margin-top: 5%;
+}
+.Intro-text{
+    align-self: center;
+}
+.Intro-text > h1{
+    color: lightseagreen;
+}
+.Intro-text > h3{
+    color: gray;
+}
+
+
+.view-time{
+    padding: 5% 10%;
+    background-color: #20b2aa;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+}
+
+.image{
+    width: 40%;
+}
+.image img{
+    width: 100%;
+} 

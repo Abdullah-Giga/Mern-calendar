@@ -1,0 +1,27 @@
+.header-container{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    /* justify-content: space-between; */
+    background-color: lightseagreen;
+    flex-wrap:wrap;
+    padding: 0% 2%;
+}
+
+h1{
+    color: white;
+}
+.links{
+    display: flex;
+    margin-left: auto;
+    padding: 0% 2%;
+   
+}
+a{
+    text-decoration: none;
+}
+.links > a{
+    color: white;
+    margin: 0% 5%;
+}
