@@ -36,6 +36,7 @@ export default function Edit({ editId }) {
   const [start, setStart] = React.useState("");
   const [end, setEnd] = React.useState("");
   const [once, setOnce] = React.useState(true);
+  const [errors, setErrors] = React.useState('');
 
   // Ge data to edit
   const { data, error } = useFetch(`http://localhost:5000/event/${editId}`);
@@ -55,7 +56,7 @@ export default function Edit({ editId }) {
         headers: { "Content-Type": "application/json" },
       }).then((res) => {
         if (!res.ok) {
-          throw Error("Could not edit data");
+          setErrors("Could not save data. Make sure all fields are full");
         }
         res.json().then((data) => {
           console.log(data);
@@ -247,6 +248,7 @@ export default function Edit({ editId }) {
                 <option className = "end" id='20.5'value="20.5">8:30 pm</option>
                 </select>
               </div>
+              <div className="error">{errors}</div>
               <div className="btns">
                 <button className="cancel" onClick={handleClose}>
                   Cancel

@@ -82,7 +82,7 @@ export default function Dashboard() {
                   <div className="task-buttons">
                     <button title="View on Table" className="view"><Link to='/Calendar'><CalendarViewMonthIcon/></Link></button>
                     <Edit editId = {event._id}/>
-                    <Delete delId={event._d} />
+                    <Delete delId={event._id} />
                   </div>
                 </div>
               );

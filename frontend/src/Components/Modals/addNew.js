@@ -17,7 +17,6 @@ const style = {
   bgcolor: 'background.paper',
   borderRadius: '20px',
   boxShadow: 24,
-  
 };
 
 export default function AddNew() {
@@ -41,7 +40,7 @@ export default function AddNew() {
   const [end, setEnd] = React.useState((a)=> ('9.5'));
   const [error, setError] = React.useState('');
   
-  const addNew = () => {
+  const handleNew = () => {
    
     try {
       fetch(`http://localhost:5000/Dashboard`, {
@@ -80,7 +79,6 @@ export default function AddNew() {
  }
   // get cities api
   const getLocations = async () => {
-    let arr;
     const where = encodeURIComponent(
       JSON.stringify({
         name: {
@@ -210,7 +208,7 @@ console.log("Location ", location)
         <div className='error'>{error}</div>
             <div className='btns'>
             <button className='cancel' onClick={handleClose}>Cancel</button>
-            <button onClick={addNew}>Add</button>
+            <button onClick={handleNew}>Add</button>
             </div>
             
         </form>
