@@ -45,3 +45,17 @@ label{
 .cancel{
     background-color: orange;
 }
+.del-btn{
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 2%;
+    border-radius: 10px;
+}
+.cancel-btn{
+    background-color: orange;
+    color: white;
+    border: none;
+    padding: 2%;
+    border-radius: 10px;
+}

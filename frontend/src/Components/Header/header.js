@@ -26,10 +26,6 @@ export default function Header() {
   useEffect(() => {
     checkUser(); 
   })
-
-
-
-
   return (
     <div className='header-container'>
         <div className='logo'>

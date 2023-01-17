@@ -3,6 +3,7 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Modal from '@mui/material/Modal';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
+import './modal.css'
 
 const style = {
   position: 'absolute',
@@ -44,10 +45,10 @@ export default function Delete({ delId }) {
       >
         <Box sx={style}>
           <div>
-            <h1>Are you sure you want to delete this event?</h1>
-            <div>
-                <Button onClick={handleDelete} >Delete</Button>
-                <Button onClick={handleClose}>Cancel</Button>
+            <h1 style={{color: 'black'}}>Are you sure you want to delete this event?</h1>
+            <div className='btns'>
+                <button className='del-btn' onClick={handleDelete} >Delete</button>
+                <button className="cancel-btn" onClick={handleClose}>Cancel</button>
             </div>
           </div>
 
