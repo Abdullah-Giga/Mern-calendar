@@ -5,7 +5,7 @@ import Header from './Components/Header/header';
 import Home from "./Pages/HomePage/home";
 import SignUp from "./Pages/SignUp/signUp";
 import SignIn from "./Pages/SignIn/signIn";
-import MyTasks from './Pages/MyTasks/myTasks';
+import Dashboard from './Pages/Dashboard/Dashboard';
 import Calendar from './Pages/calendar/calendar';
 
 function App() {
@@ -16,7 +16,7 @@ function App() {
       <Header/>
       <Routes>
         <Route element= {<PrivateRoutes/>}>
-        <Route  path = "/MyTasks" element = {<MyTasks/>}/>
+        <Route  path = "/Dashboard" element = {<Dashboard/>}/>
         <Route  path = "/Calendar" element = {<Calendar/>}/>
         </Route>
         <Route element= {<PublicRoutes/>}>

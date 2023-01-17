@@ -120,7 +120,7 @@ export default function Edit({ editId }) {
 
   return (
     <div>
-      <button onClick={handleOpen} className="edit-btn">
+      <button title="Edit this event" onClick={handleOpen} className="edit-btn">
         <EditIcon />
       </button>
       <Modal open={open} onClose={handleClose}>

@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import './header.css'
 
 export default function Header() {
-  const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [loggedIn, setLoggedIn] = useState();
   
@@ -37,7 +36,7 @@ export default function Header() {
         </div>
         {loggedIn ? (
           <div className='links'>
-          <Link to='/MyTasks'> {email}</Link>
+          <Link to='/Dashboard'> {email}</Link>
           <Link to='/' onClick={logout}>Logout</Link>
       </div>
         ) : (

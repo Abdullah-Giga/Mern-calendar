@@ -33,7 +33,7 @@ const submitHandler = (a) => {
             localStorage.setItem('email', data.user);
             localStorage.setItem('firstName', data.fName)
             localStorage.setItem('lasttName', data.lName)
-            history('/MyTasks');
+            history('/Dashboard');
           }
           
         })

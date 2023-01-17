@@ -43,7 +43,7 @@ export default function AddNew() {
   const addNew = () => {
    
     try {
-      fetch(`http://localhost:5000/myTasks`, {
+      fetch(`http://localhost:5000/Dashboard`, {
         method: 'POST',
         body: JSON.stringify({start, end, name, location, allDay ,user_email}),
         headers: {"Content-Type": "application/json"}
@@ -110,7 +110,7 @@ console.log("Location ", location)
 
   return (
     <div>
-      <Button onClick={handleOpen}>Add New</Button>
+      <Button className='blue-btn' title='Add a new event' onClick={handleOpen}><span className='blue-txt'>Add New</span></Button>
       <Modal
         open={open}
         onClose={handleClose}

@@ -29,7 +29,7 @@ export default function SignIn() {
         localStorage.setItem('email', data.user);
         localStorage.setItem('firstName', data.fName)
         localStorage.setItem('lasttName', data.lName)
-        navigate('/MyTasks');
+        navigate('/Dashboard');
         }
         
       })

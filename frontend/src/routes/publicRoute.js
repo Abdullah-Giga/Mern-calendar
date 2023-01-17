@@ -11,7 +11,7 @@ const publicRoute = () => {
             !token ?
             <Outlet/>
             :
-            <Navigate to = '/MyTasks'/>
+            <Navigate to = '/Dashboard'/>
   );
 };
 

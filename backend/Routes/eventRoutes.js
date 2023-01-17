@@ -3,8 +3,8 @@ const {getEvents, createNew, getSingleEvent, edit, deleteEvent} = require('../Co
 
 const router = Router();
 
-router.get('/myTasks/:id', getEvents);
-router.post('/myTasks', createNew);
+router.get('/Dashboard/:id', getEvents);
+router.post('/Dashboard', createNew);
 router.get('/event/:id', getSingleEvent);
 router.delete('/delete/:id', deleteEvent);
 router.put('/edit/:id', edit);

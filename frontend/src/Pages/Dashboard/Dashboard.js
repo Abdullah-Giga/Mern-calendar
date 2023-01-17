@@ -1,14 +1,14 @@
   
-import "./myTasks.css";
+import "./Dashboard.css";
 import pp from "../../Assets/pp.jpg";
 import useFetch from "../../Hooks/useFetch";
 import AddNewModal from "../../Components/Modals/addNew";
 import Edit from "../../Components/Modals/edit";
-import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import CalendarViewMonthIcon from '@mui/icons-material/CalendarViewMonth';
 import { Link } from "react-router-dom";
+import Delete from "../../Components/Modals/delete";
 
-export default function MyTasks() {
+export default function Dashboard() {
 
 
   const userEmail = localStorage.getItem("email");
@@ -17,7 +17,7 @@ export default function MyTasks() {
   
   // Getting user's events
   const { data, error } = useFetch(
-    `http://localhost:5000/myTasks/${userEmail}`
+    `http://localhost:5000/Dashboard/${userEmail}`
   );
   
   // Gets the time displayed on UI in 12 hour format
@@ -80,9 +80,9 @@ export default function MyTasks() {
                     
                   </div>
                   <div className="task-buttons">
-                    <button className="view"><Link to='/Calendar'><CalendarViewMonthIcon/></Link></button>
+                    <button title="View on Table" className="view"><Link to='/Calendar'><CalendarViewMonthIcon/></Link></button>
                     <Edit editId = {event._id}/>
-                    <button className="delete" onClick={() => handleDelete(event._id)}><DeleteOutlineIcon/></button>
+                    <Delete delId={event._d} />
                   </div>
                 </div>
               );
@@ -95,9 +95,9 @@ export default function MyTasks() {
                       <h4 className="green-txt">All Day</h4>
                     </div>
                     <div className="task-buttons">
-                    <button className="view"><Link to='/Calendar'><CalendarViewMonthIcon/></Link></button>
+                    <button title="View on Table" className="view"><Link to='/Calendar'><CalendarViewMonthIcon/></Link></button>
                     <Edit editId = {event._id}/>
-                    <button className="delete" onClick={() => handleDelete(event._id)}><DeleteOutlineIcon/></button>
+                    <Delete delId={event._id} />
                     </div>
                   </div>
                 );
