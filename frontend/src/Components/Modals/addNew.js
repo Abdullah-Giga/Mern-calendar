@@ -39,6 +39,7 @@ export default function AddNew() {
   const [allDay, setAllDay] = React.useState((a)=> (true));
   const[start, setStart] = React.useState((a)=> ('9'));
   const [end, setEnd] = React.useState((a)=> ('9.5'));
+  const [error, setError] = React.useState('');
   
   const addNew = () => {
    
@@ -50,7 +51,7 @@ export default function AddNew() {
       })
       .then((res) => {
       if(!res.ok){
-        throw Error("Could not save data");
+        setError("Could not save data. Make sure all fields are full");
       }
         res.json()      
         .then((data) => {
@@ -206,6 +207,7 @@ console.log("Location ", location)
               </select>
         </div>
         : <></>}
+        <div className='error'>{error}</div>
             <div className='btns'>
             <button className='cancel' onClick={handleClose}>Cancel</button>
             <button onClick={addNew}>Add</button>

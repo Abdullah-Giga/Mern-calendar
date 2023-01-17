@@ -13,6 +13,7 @@ const style = {
   width: '40%',
   bgcolor: 'background.paper',
   border: 'none',
+  borderRadius: "20px",
   boxShadow: 24,
   p: 4,
 };

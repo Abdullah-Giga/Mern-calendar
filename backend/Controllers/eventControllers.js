@@ -11,9 +11,10 @@ const getSingleEvent =(req, res) => {
     try {
         const id = req.params.id;
         Event.findById(id).then((result) => res.status(201).json(result))    
-    } catch (error) {
-        console.log(error)
-    }
+    } catch (err) {
+        const error = err.message;
+        res.status(400).json({ error : error });
+      }
 }
 
 
@@ -22,9 +23,10 @@ const createNew =async (req, res) => {
     try {
         const event = new Event(req.body);
          await event.save()
-    } catch (error) {
-        console.log(error)
-    }
+    } catch (err) {
+        const error = err.message;
+        res.status(400).json({ error : error });
+      }
     
 }
 
