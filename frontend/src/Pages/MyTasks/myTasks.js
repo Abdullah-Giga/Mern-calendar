@@ -9,7 +9,7 @@ import CalendarViewMonthIcon from '@mui/icons-material/CalendarViewMonth';
 import { Link } from "react-router-dom";
 
 export default function MyTasks() {
-  const [id, setId] = useState('');
+
 
   const userEmail = localStorage.getItem("email");
   const userFname = localStorage.getItem("firstName");
@@ -43,12 +43,12 @@ export default function MyTasks() {
             {userFname} {userLname}
           </h3>
           <h3>{userEmail}</h3>
-          <h3>My tasks : {data && data.length}</h3>
+          <h3>My events : {data && data.length}</h3>
         </div>
       </div>
       <div className="tasks">
         <div className="tasks-header">
-          <h2>My Tasks</h2>
+          <h2>My Events</h2>
           {/* <button className="add-new">Add New</button> */}
           <AddNewModal/>
         </div>

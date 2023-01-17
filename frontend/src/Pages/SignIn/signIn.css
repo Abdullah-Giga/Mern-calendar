@@ -27,7 +27,7 @@ input{
     background-color: lightgray;
 }
 
-label{
+.signIn-container label{
     margin-top: 5%;
 }
 

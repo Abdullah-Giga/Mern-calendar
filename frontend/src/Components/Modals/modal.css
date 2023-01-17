@@ -29,7 +29,13 @@
     display: flex;
     
 }
+label{
+    margin-top: 5%;
+}
 
+.MuiFormLabel-root{
+    margin-top: 0;
+}
 .edit-btn{
     color: orange;
     border: none;

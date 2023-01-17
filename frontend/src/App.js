@@ -1,5 +1,6 @@
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom'
-// import "./Pages/calendar/calendar.css"
+import PrivateRoutes from './routes/protectedRoute';
+import PublicRoutes from './routes/publicRoute';
 import Header from './Components/Header/header';
 import Home from "./Pages/HomePage/home";
 import SignUp from "./Pages/SignUp/signUp";
@@ -14,11 +15,15 @@ function App() {
       <Router>
       <Header/>
       <Routes>
-        <Route  path = "/" element = {<Home/>}/>
-        <Route  path = "/SignUp" element = {<SignUp/>}/>
-        <Route  path = "/SignIn" element = {<SignIn/>}/>
+        <Route element= {<PrivateRoutes/>}>
         <Route  path = "/MyTasks" element = {<MyTasks/>}/>
         <Route  path = "/Calendar" element = {<Calendar/>}/>
+        </Route>
+        <Route element= {<PublicRoutes/>}>
+        <Route  path = "/SignUp" element = {<SignUp/>}/>
+        <Route  path = "/SignIn" element = {<SignIn/>}/>
+        <Route  path = "/" element = {<Home/>}/>
+        </Route>
       </Routes>
       </Router>
     </div>
