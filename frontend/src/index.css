@@ -15,3 +15,16 @@ code {
   margin: auto;
   padding: 0% 4%;
 }
+
+.error{
+  color: red;
+}
+.blue-txt{
+color: lightseagreen;
+}
+.gray-txt{
+  color: gray;
+}
+.green-txt{
+  color: green;
+}

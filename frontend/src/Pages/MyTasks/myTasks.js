@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+  
 import "./myTasks.css";
 import pp from "../../Assets/pp.jpg";
 import useFetch from "../../Hooks/useFetch";
@@ -20,7 +20,23 @@ export default function MyTasks() {
     `http://localhost:5000/myTasks/${userEmail}`
   );
   
-  
+  // Gets the time displayed on UI in 12 hour format
+  const timeFormatHandler = (time) => {
+    const t = parseInt(time);
+    if(t > 12 && !time.includes('.5')){
+      return (t -12 + ':00 pm');
+    }
+    else if(t > 12 && time.includes('.5')){
+      return (t -12 + ':30 pm');
+    }
+    else if(t < 12 && !time.includes('.5')){
+      return (t + ':00 am');
+    }
+    else if(t < 12 && time.includes('.5')){
+      return (t + ':30 am');
+    }
+    
+  }
   // Deleting an event
   const handleDelete = (id) => {
     try {
@@ -49,7 +65,6 @@ export default function MyTasks() {
       <div className="tasks">
         <div className="tasks-header">
           <h2>My Events</h2>
-          {/* <button className="add-new">Add New</button> */}
           <AddNewModal/>
         </div>
         {data &&
@@ -59,9 +74,9 @@ export default function MyTasks() {
                 <div className="user-task" key={event._id}>
                   <div className="task-info">
                     <h4>{event.name}</h4>
-                    <h4>at {event.location}</h4>
-                    <h4>from {event.start}</h4>
-                    <h4>to {event.end}</h4>
+                    <h4 className="gray-txt">in <span className="blue-txt">{event.location}</span></h4>
+                    <h4 className="gray-txt">from <span className="blue-txt">{timeFormatHandler(event.start)}</span></h4>
+                    <h4 className="gray-txt">to <span className="blue-txt">{timeFormatHandler(event.end)}</span></h4>
                     
                   </div>
                   <div className="task-buttons">
@@ -76,8 +91,8 @@ export default function MyTasks() {
                   <div className="user-task" key={event._id}>
                     <div className="task-info">
                       <h4>{event.name}</h4>
-                      <h4>at {event.location}</h4>
-                      <h4>All Day</h4>
+                      <h4 className="gray-txt">at <span className="blue-txt">{event.location}</span></h4>
+                      <h4 className="green-txt">All Day</h4>
                     </div>
                     <div className="task-buttons">
                     <button className="view"><Link to='/Calendar'><CalendarViewMonthIcon/></Link></button>

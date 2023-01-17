@@ -7,7 +7,7 @@ export default function SignIn() {
  const navigate = useNavigate();
  const [email, setEmail] = useState('');
  const [password, setPassword] = useState('');
-//  const [token, setToken] = useState('');
+ const [error, setError] = useState('');
 
  const loginHandler = (a) => {
     a.preventDefault();
@@ -22,14 +22,16 @@ export default function SignIn() {
       )
       .then((data) => {
         console.log(data);
-        if(data){
+        if(data.error){
+          setError(data.error);
+        }else {
         localStorage.setItem('token', data.token);
         localStorage.setItem('email', data.user);
         localStorage.setItem('firstName', data.fName)
         localStorage.setItem('lasttName', data.lName)
-        
         navigate('/MyTasks');
         }
+        
       })
     } catch (error) {
       console.log(error)  
@@ -44,6 +46,7 @@ export default function SignIn() {
         <input type="text" name="email" required onChange={(e) => setEmail(e.target.value)} />
         <label>Enter your password</label>
         <input type="text" name="password" required onChange={(e) => setPassword(e.target.value)} />
+        <div className="error">{error}</div>
         <button onClick={loginHandler}>LogIn</button>
       </form>
     </div>

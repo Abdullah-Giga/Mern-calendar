@@ -21,8 +21,8 @@ const signUp = async (req, res) => {
         const token = createToken(user._id);
         res.status(201).send({user: user.email, fName: user.firstName, lName: user.lastName , token: token});
     } catch (err) {
-        const errors = err.message;
-        res.status(400).json({ errors });
+        const error = err.message;
+        res.status(400).json({ error : error });
       }
 }
 
@@ -36,8 +36,8 @@ const signIn = async (req, res) => {
 
         res.status(201).send({user: user.email, fName: user.firstName, lName: user.lastName , token: token});
     } catch (err) {
-        const errors = errorHandler(err);
-        res.status(400).json({ errors });
+        const error = err.message;
+        res.status(400).json({ error : error });
       }
 
 }
