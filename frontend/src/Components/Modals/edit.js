@@ -22,8 +22,10 @@ export default function Edit({ editId }) {
   // Get current User
   const user_email = localStorage.getItem("email");
   const navigate = useNavigate();
-  // city names api
+  
+  // city names api handlers
   const [cities, setCities] = React.useState([]);
+  let Arr = [];
 
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
@@ -36,7 +38,7 @@ export default function Edit({ editId }) {
   const [start, setStart] = React.useState("");
   const [end, setEnd] = React.useState("");
   const [once, setOnce] = React.useState(true);
-  const [errors, setErrors] = React.useState('');
+  const [errors, setErrors] = React.useState("");
 
   // Ge data to edit
   const { data, error } = useFetch(`http://localhost:5000/event/${editId}`);
@@ -67,12 +69,13 @@ export default function Edit({ editId }) {
     }
   };
 
+  // Disabling end time tha is smaller than start time
   const disable = (e) => {
     var id = "";
     document.querySelectorAll(".start").forEach((opt) => {
       if (opt.value === e.target.value) {
         id = opt.id;
-        setStart((s)=>id);
+        setStart((s) => id);
       }
     });
     document.querySelectorAll(".end").forEach((opt) => {
@@ -82,9 +85,19 @@ export default function Edit({ editId }) {
     });
   };
 
-  // get cities api
+  // For removing duplicates in the cities API
+  function removeDuplicates(arr) {
+    var unique = [];
+    arr.forEach((element) => {
+      if (!unique.includes(element)) {
+        unique.push(element);
+      }
+    });
+    return unique;
+  }
+
+  // Get all the cities of Pakistan from this API
   const getLocations = async () => {
-    let arr;
     const where = encodeURIComponent(
       JSON.stringify({
         name: {
@@ -101,11 +114,17 @@ export default function Edit({ editId }) {
         },
       }
     );
-    const data = await response.json(); // Here you have the data that you need
+    const data = await response.json();
 
-    data?.results?.map((city) => setCities((prev) => [...prev, city.name]));
-    console.log(cities);
+    data.results.forEach((city) => {
+      Arr.push(city.name);
+    });
+    setCities(removeDuplicates(Arr));
   };
+
+  React.useEffect(() => {
+    getLocations();
+  }, []);
 
   React.useEffect(() => {
     if (data && once) {
@@ -179,73 +198,166 @@ export default function Edit({ editId }) {
               <div className="time-fields">
                 <label>Start Time</label>
                 <select
-                defaultValue={start}
+                  defaultValue={start}
                   required
                   onChange={(e) => {
                     setStart((s) => e.target.value);
                     disable(e);
                   }}
                 >
-                  <option className = "start" id='9' value="9">9 am</option>
-                <option className = "start" id='9.5' value="9.5">9:30 am</option>
-                <option className = "start" id='10' value="10">10 am</option>
-                <option className = "start" id='10.5' value="10.5">10:30 am</option>
-                <option className = "start" id='11' value="11">11 am</option>
-                <option className = "start" id='11.5' value="11.5">11:30 am</option>
-                <option className = "start" id='12' value="12">12 pm</option>
-                <option className = "start" id='12.5' value="12.5">12:30 pm</option>
-                <option className = "start" id='13' value="13">1 pm</option>
-                <option className = "start" id='13.5' value="13.5">1:30 pm</option>
-                <option className = "start" id='14' value="14">2 pm</option>
-                <option className = "start" id='14.5' value="14.5">2:30 pm</option>
-                <option className = "start" id='15' value="15">3 pm</option>
-                <option className = "start" id='15.5' value="15.5">3:30 pm</option>
-                <option className = "start" id='16' value="16">4 pm</option>
-                <option className = "start" id='16.5' value="16.5">4:30 pm</option>
-                <option className = "start" id='17' value="17">5 pm</option>
-                <option className = "start" id='17.5' value="17.5">5:30 pm</option>
-                <option className = "start" id='18' value="18">6 pm</option>
-                <option className = "start" id='18.5' value="18.5">6:30 pm</option>
-                <option className = "start" id='19' value="19">7 pm</option>
-                <option className = "start" id='19.5' value="19.5">7:30 pm</option>
-                <option className = "start" id='20' value="20">8 pm</option>
-                <option className = "start" id='20.5'value="20.5">8:30 pm</option>
+                  <option className="start" id="9" value="9">
+                    9 am
+                  </option>
+                  <option className="start" id="9.5" value="9.5">
+                    9:30 am
+                  </option>
+                  <option className="start" id="10" value="10">
+                    10 am
+                  </option>
+                  <option className="start" id="10.5" value="10.5">
+                    10:30 am
+                  </option>
+                  <option className="start" id="11" value="11">
+                    11 am
+                  </option>
+                  <option className="start" id="11.5" value="11.5">
+                    11:30 am
+                  </option>
+                  <option className="start" id="12" value="12">
+                    12 pm
+                  </option>
+                  <option className="start" id="12.5" value="12.5">
+                    12:30 pm
+                  </option>
+                  <option className="start" id="13" value="13">
+                    1 pm
+                  </option>
+                  <option className="start" id="13.5" value="13.5">
+                    1:30 pm
+                  </option>
+                  <option className="start" id="14" value="14">
+                    2 pm
+                  </option>
+                  <option className="start" id="14.5" value="14.5">
+                    2:30 pm
+                  </option>
+                  <option className="start" id="15" value="15">
+                    3 pm
+                  </option>
+                  <option className="start" id="15.5" value="15.5">
+                    3:30 pm
+                  </option>
+                  <option className="start" id="16" value="16">
+                    4 pm
+                  </option>
+                  <option className="start" id="16.5" value="16.5">
+                    4:30 pm
+                  </option>
+                  <option className="start" id="17" value="17">
+                    5 pm
+                  </option>
+                  <option className="start" id="17.5" value="17.5">
+                    5:30 pm
+                  </option>
+                  <option className="start" id="18" value="18">
+                    6 pm
+                  </option>
+                  <option className="start" id="18.5" value="18.5">
+                    6:30 pm
+                  </option>
+                  <option className="start" id="19" value="19">
+                    7 pm
+                  </option>
+                  <option className="start" id="19.5" value="19.5">
+                    7:30 pm
+                  </option>
+                  <option className="start" id="20" value="20">
+                    8 pm
+                  </option>
+                  <option className="start" id="20.5" value="20.5">
+                    8:30 pm
+                  </option>
                 </select>
                 <label>End Time</label>
                 <select
                   required
                   defaultValue={end}
                   onChange={(e) => {
-                    setEnd((se) => (e.target.value));
+                    setEnd((se) => e.target.value);
                   }}
                 >
-                  <option value="9">
+                  <option className="end" id="9" value="9">
                     9 am
                   </option>
-                  <option className = "end" id='9' value="9">9 am</option>
-                <option className = "end" id='9.5' value="9.5">9:30 am</option>
-                <option className = "end" id='10' value="10">10 am</option>
-                <option className = "end" id='10.5' value="10.5">10:30 am</option>
-                <option className = "end" id='11' value="11">11 am</option>
-                <option className = "end" id='11.5' value="11.5">11:30 am</option>
-                <option className = "end" id='12' value="12">12 pm</option>
-                <option className = "end" id='12.5' value="12.5">12:30 pm</option>
-                <option className = "end" id='13' value="13">1 pm</option>
-                <option className = "end" id='13.5' value="13.5">1:30 pm</option>
-                <option className = "end" id='14' value="14">2 pm</option>
-                <option className = "end" id='14.5' value="14.5">2:30 pm</option>
-                <option className = "end" id='15' value="15">3 pm</option>
-                <option className = "end" id='15.5' value="15.5">3:30 pm</option>
-                <option className = "end" id='16' value="16">4 pm</option>
-                <option className = "end" id='16.5' value="16.5">4:30 pm</option>
-                <option className = "end" id='17' value="17">5 pm</option>
-                <option className = "end" id='17.5' value="17.5">5:30 pm</option>
-                <option className = "end" id='18' value="18">6 pm</option>
-                <option className = "end" id='18.5' value="18.5">6:30 pm</option>
-                <option className = "end" id='19' value="19">7 pm</option>
-                <option className = "end" id='19.5' value="19.5">7:30 pm</option>
-                <option className = "end" id='20' value="20">8 pm</option>
-                <option className = "end" id='20.5'value="20.5">8:30 pm</option>
+                  <option className="end" id="9.5" value="9.5">
+                    9:30 am
+                  </option>
+                  <option className="end" id="10" value="10">
+                    10 am
+                  </option>
+                  <option className="end" id="10.5" value="10.5">
+                    10:30 am
+                  </option>
+                  <option className="end" id="11" value="11">
+                    11 am
+                  </option>
+                  <option className="end" id="11.5" value="11.5">
+                    11:30 am
+                  </option>
+                  <option className="end" id="12" value="12">
+                    12 pm
+                  </option>
+                  <option className="end" id="12.5" value="12.5">
+                    12:30 pm
+                  </option>
+                  <option className="end" id="13" value="13">
+                    1 pm
+                  </option>
+                  <option className="end" id="13.5" value="13.5">
+                    1:30 pm
+                  </option>
+                  <option className="end" id="14" value="14">
+                    2 pm
+                  </option>
+                  <option className="end" id="14.5" value="14.5">
+                    2:30 pm
+                  </option>
+                  <option className="end" id="15" value="15">
+                    3 pm
+                  </option>
+                  <option className="end" id="15.5" value="15.5">
+                    3:30 pm
+                  </option>
+                  <option className="end" id="16" value="16">
+                    4 pm
+                  </option>
+                  <option className="end" id="16.5" value="16.5">
+                    4:30 pm
+                  </option>
+                  <option className="end" id="17" value="17">
+                    5 pm
+                  </option>
+                  <option className="end" id="17.5" value="17.5">
+                    5:30 pm
+                  </option>
+                  <option className="end" id="18" value="18">
+                    6 pm
+                  </option>
+                  <option className="end" id="18.5" value="18.5">
+                    6:30 pm
+                  </option>
+                  <option className="end" id="19" value="19">
+                    7 pm
+                  </option>
+                  <option className="end" id="19.5" value="19.5">
+                    7:30 pm
+                  </option>
+                  <option className="end" id="20" value="20">
+                    8 pm
+                  </option>
+                  <option className="end" id="20.5" value="20.5">
+                    8:30 pm
+                  </option>
                 </select>
               </div>
               <div className="error">{errors}</div>
