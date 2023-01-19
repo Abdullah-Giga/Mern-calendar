@@ -37,16 +37,6 @@ export default function Dashboard() {
     }
     
   }
-  // Deleting an event
-  const handleDelete = (id) => {
-    try {
-        fetch(`http://localhost:5000/delete/${id}`, {
-            method: "DELETE"
-        }).then((res) => res.json().then(() => window.location.reload(false)))
-    } catch (error) {
-        console.log(error);
-    }
-  }
 
   return (
     <div className="myTasks-container">

@@ -41,3 +41,17 @@ form button{
     cursor: pointer;
     
 }
+.signUp-btn{
+    margin:5% auto;
+    padding: 3% 7%;
+    border-radius: 10px;
+    border: none;
+    background-color: lightseagreen;
+    color: white;
+    cursor: pointer;
+}
+
+.signUp-btn:disabled{
+    background-color: lightgray;
+    color: white;
+}
