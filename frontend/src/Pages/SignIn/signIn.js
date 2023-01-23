@@ -45,7 +45,7 @@ export default function SignIn() {
         <label>Enter your email</label>
         <input type="text" name="email" required onChange={(e) => setEmail(e.target.value)} />
         <label>Enter your password</label>
-        <input type="text" name="password" required onChange={(e) => setPassword(e.target.value)} />
+        <input type="password" name="password" required onChange={(e) => setPassword(e.target.value)} />
         <div className="error">{error}</div>
         <button onClick={loginHandler}>LogIn</button>
       </form>

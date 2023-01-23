@@ -9,7 +9,7 @@
 .user-card{
 
     width: 25%;
-    background-color:lightseagreen;
+    background-color:#7236B5;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -23,7 +23,7 @@
     border-radius: 999px;
     overflow: hidden;
     margin-top: -25%;
-    border: 8px solid lightseagreen;
+    border: 8px solid #7236B5;
 }
 
 .user-image img{
@@ -56,13 +56,13 @@
 .add-new{
     border: none;
     background-color: white;
-    color: lightseagreen;
+    color: #7236B5;
 
     font-size: 1rem;
 }
 
 .tasks h2{
-    color: lightseagreen;
+    color: #7236B5;
 }
 
 .user-task{
@@ -104,9 +104,9 @@ color: red;
 .view{
     border: none;
     background-color: white;
-    color: lightseagreen;
+    color: #7236B5;
 }
 a{
     text-decoration: none;
-    color: lightseagreen;
+    color: #7236B5;
 }

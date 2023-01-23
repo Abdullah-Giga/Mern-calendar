@@ -56,9 +56,9 @@ const submitHandler = (a) => {
       <label>Enter your email</label>
       <input type="text" name="email" required  onChange={(e) => setEmail(e.target.value)} />
       <label>Enter your password</label>
-      <input type="text" name="password" required onChange={(e) => setPassword(e.target.value)} />
+      <input type="password" name="password" required onChange={(e) => setPassword(e.target.value)} />
       <label>Confirm password</label>
-      <input type="text" name="passwordAgain" required onChange={(e) => setPasswordAgain(e.target.value)} />
+      <input type="password" name="passwordAgain" required onChange={(e) => setPasswordAgain(e.target.value)} />
       <div className="error">{error}</div>
       <PasswordChecklist
 				rules={["minLength","specialChar","number","capital","match"]}

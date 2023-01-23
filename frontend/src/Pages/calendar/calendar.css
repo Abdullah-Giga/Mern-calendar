@@ -1,5 +1,5 @@
 .container{
-    padding: 1% 20%;   
+    padding: 1% 5%;   
   }
   
   .main{
@@ -8,7 +8,6 @@
     flex-direction: column;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     overflow: hidden;
-    flex-wrap: wrap;
   }
   .header{
     padding: 3% 2%;
@@ -30,28 +29,29 @@
     width: 75.5%;
     padding: 1% 0%;
     background: white;
-    border-left: 10px solid lightseagreen;
+    border-left: 10px solid #7236B5;
   }
   
   
-  .gray-text{
+  /* .gray-text{
     color: gray;
-  }
-  .green-text{
-    color: lightseagreen;
-  }
+  } */
+  /* .green-text{
+    color: #7236B5;
+  } */
   
   
   .am{
     border-top: 1px solid #FC4A9B;
-    background-color: #FEEBF3 ;
+    background: rgba(252, 74, 155, 0.1);
+    
   }
   .am h1{
     color: #FC4A9B;
   }
   .pm{
     border-top: 1px solid #47DCEA;
-    background-color: #E3F5F9 ;
+    background: rgba(71, 220, 234, 0.1);
     padding-bottom: 4%;
   }
   .pm h1{
@@ -61,7 +61,6 @@
     width: 100%;
     display: flex;
     flex-direction: row;
-    /* height: auto; */
   }
   .heading-am, .heading-pm{
     padding:    0% 2%;
@@ -87,6 +86,21 @@
     height: 60px;
     width: 100%;
   }
+
+
+  .sub-am, .sub-pm{
+    border-top: 1px solid #CDCECF ;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    height: 60px;
+    width: 95%;
+    margin-left: auto;
+  }
+
+
+
+
   h2{
     margin-right: 10%;
   }
@@ -103,27 +117,38 @@
     height: 60px;
     margin-left: auto;
   }
-  .r-item-full{
-    /* padding: 1%; */
-    width: 100%;
-    margin-right: 1%;
-    background: white;
-    border-left: 10px solid lightseagreen;
-    z-index: 1; 
-  }
+
   .items-s{
     display: flex;
     flex-direction: row;
     z-index: 1;
-    width: 90%;
+    width: 89.5%;
     height: 60px;
     padding: none;
     margin-left: auto;
   }
+
+
+
+
+  .r-item-full{
+    width: 100%;
+    background: white;
+    border-left: 10px solid #7236B5;
+    z-index: 1; 
+  }
+
+  .r-item{
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    background: rgba(114,54,181, 0.3);
+  }
+  
   .r-item-half{
     width: 100%;
     background: white;
-    border-left: 10px solid lightseagreen;
+    border-left: 10px solid #7236B5;
+    background: rgba(114,54,181, 0.3);    
     z-index: 1; 
   }
   
@@ -139,13 +164,3 @@
     border-top: none;
   }
   
-  .sub-am, .sub-pm{
-    border-top: 1px solid #CDCECF ;
-    color: gray;
-    display: flex;
-    flex-direction: row;
-    position: relative;
-    height: 60px;
-    width: 95%;
-    margin-left: auto;
-  }

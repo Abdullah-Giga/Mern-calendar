@@ -19,7 +19,11 @@ export default function Calendar() {
       } else {
         objArr.push(element);
       }
-    //   console.log(all_Day)
+      //   console.log(all_Day)
+    });
+    // Sorting array wrt the time sequence
+    objArr.sort(function (a, b) {
+      return a.start - b.start;
     });
   };
 
@@ -65,9 +69,9 @@ export default function Calendar() {
   const getDivHalf = (h, count, id, start, name, location) => {
     let div = `
       <div class="r-item r-item-half" id = "event-${count}" style = "height : ${h};">
-      <span class="gray-text">${Math.trunc(
+      <span>${Math.trunc(
         time(start)
-      )}:30 - </span><b>${name}</b> <span class="green-text"> ${location}</span>
+      )}:30 - </span><b>${name}</b> <span> ${location}</span>
       </div>`;
     return div;
   };
@@ -84,27 +88,34 @@ export default function Calendar() {
     return isOverlapping;
   }
 
+  const getMargin = (parent) => {
+    const grandParent = document.getElementById("main-div");
+    const rectParent = parent.getBoundingClientRect();
+    const rectMain = grandParent.getBoundingClientRect();
+    return rectMain.width - rectParent.width;
+  };
+
   // Checking the collision and making divs responsive
   function collision() {
-    for (let i = 0; i < objArr.length; i++) {
-      let j = 0;
-      while (j != i && j < objArr.length - 1) {
-        if (
-          collision_helper(
-            document.getElementById(`event-${i}`),
-            document.getElementById(`event-${j}`)
-          )
-        ) {
-          let parent = document.getElementById(`event-${j}`).parentElement;
-          let child = document.getElementById(`event-${i}`);
+   
+    for (let i = 1; i < objArr.length; i++) {
+      let j = i - 1;
 
-          parent.appendChild(child);
-        //   console.log(parent, child);
-          child.style.marginTop = `${
-            (objArr[i].start - objArr[j].start) * 122
-          }px`;
-        }
-        j++;
+      if (
+        collision_helper(
+          document.getElementById(`event-${j}`),
+          document.getElementById(`event-${i}`)
+        ) &&
+        objArr[i].start != objArr[j].start
+      ) {
+        let parent = document.getElementById(`event-${j}`);
+        let child = document.getElementById(`event-${i}`);
+
+        console.log(parent.id + " is parent of" + child.id);
+        console.log(getMargin(parent))
+        // console.log(parent.clientWidth)
+        child.style.marginLeft = `${getMargin(parent) - 360}px`;
+        console.log(child.id + "------>" +child.style.marginLeft)
       }
     }
   }
@@ -116,6 +127,7 @@ export default function Calendar() {
     console.log((10.5 - 10) * 120);
     objArr.forEach((e) => {
       let j = document.getElementById(e.start);
+      
 
       if (e.start == j.id && j.id.includes(".5")) {
         count++;
@@ -138,7 +150,7 @@ export default function Calendar() {
 
   return (
     <div className="container">
-      <div className="main">
+      <div className="main" id="main-div">
         <div className="header">
           <div className="date">Friday,April 1</div>
         </div>
