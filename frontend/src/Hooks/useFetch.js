@@ -1,29 +1,20 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import { tokenHeader } from "../Constants/Events/constants";
 
 const useFetch = (url) => {
-  const navigate = useNavigate();
   const [data, setData] = useState(null);
-
-//   const [pending, setPending] = useState();
   const [error, setError] = useState(null);
 
   useEffect(() => {
-  
-    fetch(url).then((res) => {
-      if (!res.ok) {
+    axios.get(url, {
+      headers:tokenHeader
+    }).then((res) => {
+      setData(res.data)
+      if (res.error) {
         throw Error("could not fetch data");
       }
-      res.json()
-        .then((data) => {
-          setData(data);
-          // setPending(false);
-        })
-        .catch((err) => {
-          // setPending(true);
-          setError(err.message);
-        });
-    })
+    }).catch((error) => setError(error))
   }, [url]);
   return {data, error};
 };

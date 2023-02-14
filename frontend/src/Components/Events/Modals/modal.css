@@ -1,5 +1,24 @@
+.modal-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30%;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 24;
+}
 
-.modal-form{
+.delete-box{
+    padding: 2%;
+}
+.modal-box{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+
+.modal-form {
     width: 90%;
     display: flex;
     flex-direction: column;
@@ -8,55 +27,57 @@
     box-shadow: none;
 }
 
-.modal-form .radio > input{
-    /* width: 60%; */
+.modal-form .radio>input {
     margin: 20px 20px;
     text-align: center;
     align-self: center;
 }
 
-.time-fields{
+.time-fields {
     margin: 20px 0px;
 }
 
 
-.time-fields > label{
+.time-fields>label {
     margin: 20px;
 }
 
-.btns{
+.btns {
     width: 100%;
     display: flex;
-    
+
 }
-label{
+
+label {
     margin-top: 5%;
 }
 
-.MuiFormLabel-root{
+.MuiFormLabel-root {
     margin-top: 0;
 }
-.edit-btn{
+
+.edit-btn {
     color: orange;
     border: none;
     background-color: white;
 }
 
-.cancel{
+.cancel {
     background-color: orange;
 }
-.del-btn{
+
+.del-btn {
     background-color: red;
     color: white;
     border: none;
     padding: 2%;
     border-radius: 10px;
 }
-.cancel-btn{
+
+.cancel-btn {
     background-color: orange;
     color: white;
     border: none;
     padding: 2%;
     border-radius: 10px;
 }
-

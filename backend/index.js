@@ -3,6 +3,7 @@ const express = require('express');
 const cors = require('cors');
 const userRoutes = require('./Routes/userRoutes');
 const eventRoutes = require('./Routes/eventRoutes');
+const  requireAuth = require('./middlewares/userAuth');
 
 require('dotenv').config();
 
@@ -13,10 +14,10 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-app.use(userRoutes);
-app.use(eventRoutes);
+app.use('/api/user',userRoutes);
+app.use('/api/events',requireAuth,eventRoutes);
 
-// Avoiding a warning
+// Avoiding the strict query warning
 mongoose.set('strictQuery', true);
 
 

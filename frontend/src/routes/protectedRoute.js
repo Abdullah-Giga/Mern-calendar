@@ -1,10 +1,11 @@
 import React from "react";
 
 import {Navigate, Outlet } from "react-router-dom";
+import { outLocal } from "../utils/Users/HelperFunctions";
 
 const protectedRoute = () => {
 
-    const token = localStorage.getItem('token');
+    const token = outLocal('token')
 
   
   return (

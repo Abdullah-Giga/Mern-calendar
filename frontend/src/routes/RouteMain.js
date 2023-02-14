@@ -1,12 +1,12 @@
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom'
-import PrivateRoutes from './routes/protectedRoute';
-import PublicRoutes from './routes/publicRoute';
-import Header from './Components/Header/header';
-import Home from "./Pages/HomePage/home";
-import SignUp from "./Pages/SignUp/signUp";
-import SignIn from "./Pages/SignIn/signIn";
-import Dashboard from './Pages/Dashboard/Dashboard';
-import Calendar from './Pages/calendar/calendar';
+import PrivateRoutes from './protectedRoute';
+import PublicRoutes from './publicRoute';
+import Header from '../Components/Header/header';
+import Home from "../Pages/HomePage/home";
+import SignUp from "../Pages/SignUp/signUp";
+import SignIn from "../Pages/SignIn/signIn";
+import Dashboard from '../Pages/Dashboard/Dashboard';
+import Calendar from '../Pages/calendar/calendar';
 
 function App() {
   return (

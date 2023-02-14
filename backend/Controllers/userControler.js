@@ -19,7 +19,7 @@ const signUp = async (req, res) => {
         const {firstName, lastName, email, password} = req.body;
         const user = await User.create({firstName, lastName, email, password});
         const token = createToken(user._id);
-        res.status(201).send({user: user.email, fName: user.firstName, lName: user.lastName , token: token});
+        res.status(201).send({email: user.email, fName: user.firstName, lName: user.lastName , token: token});
     } catch (err) {
         const error = err.message;
         res.status(400).json({ error : error });
@@ -34,10 +34,10 @@ const signIn = async (req, res) => {
         const user = await User.login(email, password);
         const token = createToken(user._id);
 
-        res.status(201).send({user: user.email, fName: user.firstName, lName: user.lastName , token: token});
-    } catch (err) {
-        const error = err.message;
-        res.status(400).json({ error : error });
+        res.status(201).send({email: user.email, fName: user.firstName, lName: user.lastName , token: token});
+    } catch (error) {
+        // console.log(error)
+        res.status(400).json({ error : error.message });
       }
 
 }

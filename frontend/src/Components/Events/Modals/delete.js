@@ -1,21 +1,10 @@
 import * as React from 'react';
+import axios from 'axios';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import './modal.css'
-
-const style = {
-  position: 'absolute',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
-  width: '40%',
-  bgcolor: 'background.paper',
-  border: 'none',
-  borderRadius: "20px",
-  boxShadow: 24,
-  p: 4,
-};
+import { SINGLE_EVENT, tokenHeader } from '../../../Constants/Events/constants';
 
 export default function Delete({ delId }) {
   const [open, setOpen] = React.useState(false);
@@ -25,13 +14,14 @@ export default function Delete({ delId }) {
 
   // Deleting an event
   const handleDelete = () => {
-    try {
-        fetch(`http://localhost:5000/delete/${delId}`, {
-            method: "DELETE"
-        }).then((res) => res.json().then(() => window.location.reload(false)))
-    } catch (error) {
-        console.log(error);
-    }
+        axios.delete(SINGLE_EVENT(delId), {
+            headers: tokenHeader
+        }).then((res) => {
+          if(res.data.error){
+            console.log(res.data.error)
+          }
+          window.location.reload(false)
+        })
   }
 
   return (
@@ -40,10 +30,8 @@ export default function Delete({ delId }) {
       <Modal
         open={open}
         onClose={handleClose}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
       >
-        <Box sx={style}>
+        <Box className='modal-box delete-box'>
           <div>
             <h1 style={{color: 'black'}}>Are you sure you want to delete this event?</h1>
             <div className='btns'>

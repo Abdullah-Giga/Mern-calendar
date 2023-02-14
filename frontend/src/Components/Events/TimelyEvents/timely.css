@@ -1,0 +1,9 @@
+.event{
+    width: 90%;
+    margin-left: auto;
+    background: rgba(114,54,181, 0.3);  
+    border-left: 10px solid #7236B5;
+    z-index: 1;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px
+}

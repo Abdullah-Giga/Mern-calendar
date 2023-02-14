@@ -1,166 +1,57 @@
-.container{
-    padding: 1% 5%;   
-  }
-  
-  .main{
-    min-width: 100%;
-    display: flex;
-    flex-direction: column;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    overflow: hidden;
-  }
-  .header{
-    padding: 3% 2%;
-    text-align: right;
-    background-color: white;
-    border-bottom: 1px solid gray;
-  }
-  
-  .all-day{
-    background-color: #EDF1F1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content:space-around;
-  }
-  
-  .item-all{
-    margin-left: auto;
-    width: 75.5%;
-    padding: 1% 0%;
-    background: white;
-    border-left: 10px solid #7236B5;
-  }
-  
-  
-  /* .gray-text{
-    color: gray;
-  } */
-  /* .green-text{
-    color: #7236B5;
-  } */
-  
-  
-  .am{
-    border-top: 1px solid #FC4A9B;
-    background: rgba(252, 74, 155, 0.1);
+
+  .calendar-container{
+    padding: 5% 0%;
+    background:rgb(240, 235, 235);
+    }
     
-  }
-  .am h1{
-    color: #FC4A9B;
-  }
-  .pm{
-    border-top: 1px solid #47DCEA;
-    background: rgba(71, 220, 234, 0.1);
-    padding-bottom: 4%;
-  }
-  .pm h1{
-    color: #47DCEA;
-  }
-  .am, .pm{
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-  }
-  .heading-am, .heading-pm{
-    padding:    0% 2%;
-    width: 5%;
-  
-  }
-  .heading-am > h1, .heading-pm > h1{
-    font-size: 2.7rem;
-    font-weight: 200;
-  }
-  
-  .time-divs-am, .time-divs-pm{
-    display: flex;
-    flex-direction: column;
-    width: 90%;
-    margin-left: auto;
-  }
-  .main-am , .main-pm{
-    border-top: 2px solid #CDCECF ;
-    position: relative;
-    display: flex;
-    flex-direction: row;
-    height: 60px;
-    width: 100%;
-  }
+    .calendar-main{
+        width: 80%;
+        margin: auto;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        padding: 1% 0  ;
+        background: white;
+    }
+    
+    .header{
+        width: 100%;
+        padding: 2% 0%;
+        
+    }
+    
+    .date{
+        display: inline;
+        padding-left: 1%;
+    }
+    
+    #_8{
+      padding: 1% 0;
+      background:rgb(240, 235, 235);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
 
-
-  .sub-am, .sub-pm{
-    border-top: 1px solid #CDCECF ;
-    display: flex;
-    flex-direction: row;
-    position: relative;
-    height: 60px;
-    width: 95%;
-    margin-left: auto;
-  }
-
-
-
-
-  h2{
-    margin-right: 10%;
-  }
-  
-  
-  b{
-    color: black;
-  }
-  
-  .items{
-    display: flex;
-    flex-direction: row;
-    width: 85%;
-    height: 60px;
-    margin-left: auto;
-  }
-
-  .items-s{
-    display: flex;
-    flex-direction: row;
-    z-index: 1;
-    width: 89.5%;
-    height: 60px;
-    padding: none;
-    margin-left: auto;
-  }
-
-
-
-
-  .r-item-full{
-    width: 100%;
-    background: white;
-    border-left: 10px solid #7236B5;
-    z-index: 1; 
-  }
-
-  .r-item{
-    border-top-right-radius: 20px;
-    border-bottom-right-radius: 20px;
-    background: rgba(114,54,181, 0.3);
-  }
-  
-  .r-item-half{
-    width: 100%;
-    background: white;
-    border-left: 10px solid #7236B5;
-    background: rgba(114,54,181, 0.3);    
-    z-index: 1; 
-  }
-  
-  
-  .main-am h2, .main-pm h2{
-    font-size: 1.2rem;
-  }
-  
-  ._11-am{
-    border-bottom: none;
-  }
-  ._12-pm, ._9-am{
-    border-top: none;
-  }
-  
+    }
+    
+    .time-slots{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .main{
+        border-top:1px solid rgb(240, 235, 235);
+    }
+    
+    .main  h4{
+        font-weight: 400;
+        padding-left: 2%;
+        width: 3%;
+    }
+    .sub-1{
+        border-bottom: 1px solid rgb(240, 235, 235);
+        display: flex;
+        flex-direction: row;
+        height: 50px;
+    }
+    
+    
